@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+require "database/Database.php";
+require "models/Post.php";
+
+$db   = new Database();
+$post = new Post($db->connection());
+
+$posts = $post->userPosts($_SESSION['user_id']);
+?>
+
 <!doctype html>
 <html>
    <head>
@@ -128,16 +140,19 @@
 
 <!-- ------------محتوا------------- -->
 <?php
-$conn = mysqli_connect("localhost", "root", "", "faridyazdani_blog");
-session_start();
+// $conn = mysqli_connect("localhost", "root", "", "faridyazdani_blog");
+// session_start();
 
-$user_id = $_SESSION['user_id'];
+// $user_id = $_SESSION['user_id'];
 
-$query = "SELECT * FROM posts WHERE user_id = $user_id";
-$result = mysqli_query($conn, $query);
+// $query = "SELECT * FROM posts WHERE user_id = $user_id";
+// $result = mysqli_query($conn, $query);
 
-$posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
+// $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
+
+
+
 
 <div class="container mt-4">
   <div class="row">

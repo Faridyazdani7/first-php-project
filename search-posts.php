@@ -128,20 +128,31 @@
 
 <!-- ------------محتوا------------- -->
 <?php
-$conn = mysqli_connect("localhost", "root", "", "faridyazdani_blog");
+// $conn = mysqli_connect("localhost", "root", "", "faridyazdani_blog");
+
+// $username = $_GET['username'] ?? '';
+
+// $query = "
+// SELECT posts.*
+// FROM posts
+// JOIN users ON posts.user_id = users.id
+// WHERE users.name LIKE '%$username%'
+// ";
+
+// $result = mysqli_query($conn, $query);
+// $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
+?>
+<?php
+require "database/Database.php";
+require "models/Post.php";
+
+$db   = new Database();
+$post = new Post($db->connection());
 
 $username = $_GET['username'] ?? '';
-
-$query = "
-SELECT posts.*
-FROM posts
-JOIN users ON posts.user_id = users.id
-WHERE users.name LIKE '%$username%'
-";
-
-$result = mysqli_query($conn, $query);
-$posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
+$posts = $post->searchByUsername($username);
 ?>
+
 
 <form method="get">
   <input type="text" name="username" placeholder="نام کاربری">

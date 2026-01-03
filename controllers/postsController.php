@@ -1,35 +1,18 @@
 <?php
 
-$conn = mysqli_connect("localhost", "root", "", "faridyazdani_blog");
 
-$title     = $_POST['title'];
-$post_body = $_POST['post_body'];
-$user_id   = $_POST['user_id'];
-$img       = $_FILES['img'];
+require "../database/Database.php";
+require "../models/Post.php";
 
+$db   = new Database();
+$post = new Post($db->connection());
 
-$img_name = time() . '_' . $img['name'];
-
-move_uploaded_file(
-    $img['tmp_name'],
-    "../img/profile_images/" . $img_name
+$post->create(
+    $_POST['title'],
+    $_POST['post_body'],
+    $_POST['user_id'],
+    $_FILES['img']
 );
-
-$img_path = "img/profile_images/" . $img_name;
-
-$query = "INSERT INTO posts (title, img_path, post_body, user_id)
-          VALUES ('$title', '$img_path', '$post_body', '$user_id')";
-
-mysqli_query($conn, $query);
-
-header("Location: ../my-posts.php");
-exit;
-
-
-$query = "INSERT INTO posts (title, img_path, post_body, user_id)
-          VALUES ('$title', '$img_path', '$post_body', '$user_id')";
-
-mysqli_query($conn, $query);
 
 header("Location: ../my-posts.php");
 exit;
