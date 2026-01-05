@@ -18,7 +18,7 @@ if ($_POST['form_name'] === 'register') {
         $_FILES['img']
     );
 
-    header("Location: ../Login.html");
+    header("Location: ../views/auth/Login.html");
     exit;
 }
 
@@ -37,7 +37,7 @@ if ($_POST['form_name'] === 'login') {
         $_SESSION['user_id'] = $data['id'];
         $_SESSION['name']    = $data['name'];
 
-        header("Location: ../create-post.php");
+        header("Location: ../views/posts/create-post.php");
         exit;
     }
 

@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-require "database/Database.php";
-require "models/Post.php";
+require "../../database/Database.php";
+require "../../models/Post.php";
 
 $db   = new Database();
 $post = new Post($db->connection());
@@ -15,11 +15,11 @@ $posts = $post->userPosts($_SESSION['user_id']);
    <head>
       <meta charset="utf-8">
       <title>Easy Shop</title>
-      <link href="style/font-awesome.css" rel="stylesheet" type="text/css">
-      <link href="style/bootstrap.css" rel="stylesheet" type="text/css">
-      <link href="style/owl.carousel.css" rel="stylesheet" type="text/css">
-      <link href="style/owl.theme.default.css" rel="stylesheet" type="text/css">
-      <link href="style/style.css" rel="stylesheet" type="text/css">
+      <link href="../../assets/style/font-awesome.css" rel="stylesheet" type="text/css">
+      <link href="../../assets/style/bootstrap.css" rel="stylesheet" type="text/css">
+      <link href="../../assets/style/owl.carousel.css" rel="stylesheet" type="text/css">
+      <link href="../../assets/style/owl.theme.default.css" rel="stylesheet" type="text/css">
+      <link href="../../assets/style/style.css" rel="stylesheet" type="text/css">
    </head>
    <body>
       <div class="social">
@@ -36,10 +36,10 @@ $posts = $post->userPosts($_SESSION['user_id']);
             <div class="row">
                <div class="col-md-6">
                   <div class="login">
-                     <a href="register.html" class="mybtn"><i class="fa fa-user-plus"></i>ثبت نام</a>
-                     <a href="Login.html" class="mybtn"><i class="fa fa-user-o"></i>ورود</a>
+                     <a href="../auth/register.html" class="mybtn"><i class="fa fa-user-plus"></i>ثبت نام</a>
+                     <a href="../auth/Login.html" class="mybtn"><i class="fa fa-user-o"></i>ورود</a>
                      <a href="#" class="mybtn"><i class="fa fa-cart-arrow-down"></i>سبد</a>
-                     <a href="search-posts.php" class="mybtn"><i class="fa fa-cart-arrow-down"></i>پست های کاربران</a>  				
+                     <a href="../posts/search-posts.php" class="mybtn"><i class="fa fa-cart-arrow-down"></i>پست های کاربران</a>  				
                   </div>
                </div>
                <div class="col-md-6">
@@ -114,7 +114,7 @@ $posts = $post->userPosts($_SESSION['user_id']);
                               <p>دوربین کانن از سری 6 با لنز همراه.قابلیت تصویر برداری اچ دی.قابلیت تنظیم در حالت شب . دارای دو عدد باتری اضافی</p>
                            </div>
                            <div class="col-md-6">
-                              <img src="img/p20lite-listimage-black.png" class="w-75" >
+                              <img src="../../assets/img/p20lite-listimage-black.png" class="w-75" >
                            </div>
                         </div>
                         <div class="carousel-item">
@@ -124,7 +124,7 @@ $posts = $post->userPosts($_SESSION['user_id']);
                               <p>تبلت 10 اینج هوآوی . با قابلیت نصب سه عدد سیمکارت همزمان . دارای شبکه فورجی و اتصال سریع . دارای باتری اتمی و دوربین 13 مگاپیکسل</p>
                            </div>
                            <div class="col-md-6">
-                              <img src="img/p20lite-listimage-black.png" class="w-75" >
+                              <img src="../../assets/img/p20lite-listimage-black.png" class="w-75" >
                            </div>
                         </div>
                      </div>
@@ -161,8 +161,8 @@ $posts = $post->userPosts($_SESSION['user_id']);
       <div class="col-md-4">
         <div class="blog-content user-post">
 
-          <figure>
-            <img src="<?= htmlspecialchars($post['img_path']) ?>" class="w-100">
+            <figure >
+            <img src="<?=  htmlspecialchars($post['img_path']) ?>" class="w-100">
           </figure>
 
           <h5><?= htmlspecialchars($post['title']) ?></h5>
@@ -227,10 +227,10 @@ $posts = $post->userPosts($_SESSION['user_id']);
     </div>
 </div>
 
-<script src="js/jquery-3.3.1.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/js.js"></script>
+<script src="../../assets/js/jquery-3.3.1.js"></script>
+<script src="../../assets/js/bootstrap.js"></script>
+<script src="../../assets/js/owl.carousel.min.js"></script>
+<script src="../../assets/js/js.js"></script>
 
 </body>
 </html>

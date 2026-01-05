@@ -2,7 +2,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_id'])) {
-    header("Location: Login.html");
+    header("Location: ../auth/Login.html");
     exit;
 }
 ?>
@@ -12,11 +12,11 @@ if (!isset($_SESSION['user_id'])) {
     <meta charset="utf-8">
     <title>ایجاد پست | Easy Shop</title>
 
-    <link href="style/font-awesome.css" rel="stylesheet">
-    <link href="style/bootstrap.css" rel="stylesheet">
-    <link href="style/owl.carousel.css" rel="stylesheet">
-    <link href="style/owl.theme.default.css" rel="stylesheet">
-    <link href="style/style.css" rel="stylesheet">
+    <link href="../../assets/style/font-awesome.css" rel="stylesheet">
+    <link href="../../assets/style/bootstrap.css" rel="stylesheet">
+    <link href="../../assets/style/owl.carousel.css" rel="stylesheet">
+    <link href="../../assets/style/owl.theme.default.css" rel="stylesheet">
+    <link href="../../assets/style/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -37,10 +37,10 @@ if (!isset($_SESSION['user_id'])) {
         <div class="row">
             <div class="col-md-6">
                 <div class="login">
-                    <a href="register.html" class="mybtn"><i class="fa fa-user-plus"></i>ثبت نام</a>
-                    <a href="Login.html" class="mybtn"><i class="fa fa-user-o"></i>ورود</a>
+                    <a href="../auth/register.html" class="mybtn"><i class="fa fa-user-plus"></i>ثبت نام</a>
+                    <a href="../auth/Login.html" class="mybtn"><i class="fa fa-user-o"></i>ورود</a>
                     <a href="#" class="mybtn"><i class="fa fa-cart-arrow-down"></i>سبد</a>
-                    <a href="search-posts.php" class="mybtn"><i class="fa fa-file-text"></i>پست‌های کاربران</a>
+                    <a href="../posts/search-posts.php" class="mybtn"><i class="fa fa-file-text"></i>پست‌های کاربران</a>
                 </div>
             </div>
             <div class="col-md-6">
@@ -76,7 +76,7 @@ if (!isset($_SESSION['user_id'])) {
         <div class="col-md-6 offset-md-3"> 
             <div class="register-form p-30">
                  <h2 class="text-center">ایجاد پست جدید</h2> 
-                 <form action="controllers/postsController.php" method="post" enctype="multipart/form-data"> 
+                 <form action="../../controllers/postsController.php" method="post" enctype="multipart/form-data"> 
                     <div class="form-group"> <input type="hidden" name="user_id" value="<?= $_SESSION['user_id'] ?>"> 
                     <label>عنوان پست</label> <input type="text" name="title" class="form-control" required>
                      <label>عکس پست</label> <input type="file" name="img" class="form-control" required> 
@@ -137,10 +137,10 @@ if (!isset($_SESSION['user_id'])) {
     </div>
 </div>
 
-<script src="js/jquery-3.3.1.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/js.js"></script>
+<script src="../../assets/js/jquery-3.3.1.js"></script>
+<script src="../../assets/js/bootstrap.js"></script>
+<script src="../../assets/js/owl.carousel.min.js"></script>
+<script src="../../assets/js/js.js"></script>
 
 </body>
 </html>

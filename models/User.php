@@ -15,10 +15,10 @@ class User
 
         move_uploaded_file(
             $img['tmp_name'],
-            "../img/profile_images/" . $img_name
+            "../assets/img/profile_images/" . $img_name
         );
 
-        $path = "img/profile_images/" . $img_name;
+        $path = "assets/img/profile_images/" . $img_name;
 
         $query = "INSERT INTO users (name, profile, mobile)
                   VALUES ('$username', '$path', '$mobile')";

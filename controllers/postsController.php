@@ -14,5 +14,5 @@ $post->create(
     $_FILES['img']
 );
 
-header("Location: ../my-posts.php");
+header("Location: ../views/posts/my-posts.php");
 exit;
