@@ -102,7 +102,7 @@
                               <p>دوربین کانن از سری 6 با لنز همراه.قابلیت تصویر برداری اچ دی.قابلیت تنظیم در حالت شب . دارای دو عدد باتری اضافی</p>
                            </div>
                            <div class="col-md-6">
-                              <img src="img/p20lite-listimage-black.png" class="w-75" >
+                              <img src="../../assets/img/p20lite-listimage-black.png" class="w-75" >
                            </div>
                         </div>
                         <div class="carousel-item">
@@ -145,8 +145,15 @@
 <div class="container">
  <div class="row">
 <?php
-require "../../database/Database.php";
-require "../../models/Post.php";
+
+require __DIR__ ."/../../vendor/autoload.php";
+
+// require "../../database/Database.php";
+// require "../../models/Post.php";
+
+use App\Database\Database;
+use App\models\Post;
+use App\models\User;
 
 $db   = new Database();
 $post = new Post($db->connection());
@@ -156,26 +163,35 @@ $posts = $post->searchByUsername($username);
 ?>
 
 
-<form method="get" class="mb-4">
+<form method="get" class="mb-4 block w-100">
   <input type="text" name="username" placeholder="نام کاربری">
   <button>جستجو</button>
 </form>
 
-<div class="row ">
-<?php foreach ($posts as $post): ?>
-  <div class="col-md-4">
-    <div class="blog-content">
-      <figure class="post-img">
-      <img src="<?= $post['img_path'] ?>" class="w-100">
-      </figure>
-      <h5><?= $post['title'] ?></h5>
-      <p><?= $post['post_body'] ?></p>
-    </div>
-  </div>
-<?php endforeach; ?>
+      <?php foreach ($posts as $post): ?>
+         <div class="col-md-4">
+         <div class="blog-content user-post">
+   
+               <figure >
+               <img src="<?=  htmlspecialchars($post['img_path']) ?>" class="w-100">
+            </figure>
+   
+            <h5><?= htmlspecialchars($post['title']) ?></h5>
+   
+            <p>
+               <?= mb_substr(strip_tags($post['post_body']), 0, 120) ?>...
+            </p>
+   
+            <a href="#" class="mybtn">
+               ادامه مطلب »
+            </a>
+   
+         </div>
+         </div>
+      <?php endforeach; ?>
+   </div>   
 </div>
-</div>
-</div>
+
 
 
 <!-- footer -->

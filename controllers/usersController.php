@@ -3,8 +3,14 @@
 
 session_start();
 
-require "../database/Database.php";
-require "../models/User.php";
+require __DIR__ ."/../vendor/autoload.php";
+
+// require "../database/Database.php";
+// require "../models/User.php";
+
+use App\Database\Database;
+use App\models\Post;
+use App\models\User;
 
 $db   = new Database();
 $user = new User($db->connection());

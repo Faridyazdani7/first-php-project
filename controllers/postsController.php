@@ -1,8 +1,15 @@
 <?php
 
+session_start();
 
-require "../database/Database.php";
-require "../models/Post.php";
+require __DIR__ ."/../vendor/autoload.php";
+
+// require "../database/Database.php";
+// require "../models/Post.php";
+
+use App\Database\Database;
+use App\models\Post;
+use App\models\User;
 
 $db   = new Database();
 $post = new Post($db->connection());

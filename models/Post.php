@@ -1,5 +1,7 @@
 <?php
 
+namespace App\models;
+
 class Post{
     private $conn;
 

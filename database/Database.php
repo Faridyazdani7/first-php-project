@@ -1,4 +1,5 @@
 <?php
+namespace App\Database;
 class Database {
     private $conn;
     public function __construct()
@@ -9,6 +10,7 @@ class Database {
             "",
             "faridyazdani_blog"
         );
+        // return $this->conn;
     }
 
     public function connection()
